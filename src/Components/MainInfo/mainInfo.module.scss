@@ -1,0 +1,55 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-shadow: 0 0 5px #000;
+  color: #fff;
+
+  .degree {
+    font-size: 140px;
+    font-weight: 700;
+    display: flex;
+  }
+
+  .city_time {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // max-width: 580px;
+    // width: 100%;
+
+    .city {
+      font-size: 80px;
+      letter-spacing: 2px;
+    }
+    .time{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    @media (max-width: 1161px) {
+
+    }
+
+  }
+
+  .weather_icon{
+    display: flex;
+    flex-direction: column;
+
+    .icon{
+        i{
+            font-size: 100px;
+        }
+    }
+
+    .climate_text{
+        font-size: 2rem;
+    }
+  }
+
+  @media(max-width: 1161px) {
+    display: block;
+    padding: 0;
+  }
+}

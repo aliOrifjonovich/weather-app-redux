@@ -1,0 +1,47 @@
+.App {
+  background: linear-gradient(
+    180deg,
+    rgba(28, 137, 200, 1) 0%,
+    rgba(166, 202, 224, 1) 100%
+  );
+  width: 100%;
+  min-height: 100vh;
+  color: #fff;
+
+
+  .first {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh !important;
+    padding: 80px;
+
+    nav{
+        h1{
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+    }
+
+    @media(max-width: 1161px){
+      padding: 40px;
+    }
+  }
+
+  .second{
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-left: 2px solid #ccc;
+    background: #0000005e;
+    height: 100%;
+
+    @media (max-width: 750px) {
+      position: sticky;
+      left: 0;
+      width: 100%;
+      border: none;
+    }
+  }
+}
