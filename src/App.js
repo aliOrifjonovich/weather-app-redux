@@ -13,17 +13,17 @@ export const Context = createContext();
 function App() {
   const dispatch = useDispatch();
   const [values, setValues] = useState("London");
-  const [isLoding, setIsLoading] = useState(false);
+  const [isLoding, setIsLoading] = useState(true);
   const APIKEY = "f6363b23154d6b7d3c0c40c1e8d6a98e";
   const data = useSelector((store) => store.search);
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${values}&units=metric&appid=${APIKEY}`
       )
       .then((response) => {
         const data = response.data;
-        console.log(data);
         const weatherKeys = {
           name: data.name,
           degree: Math.ceil(data.main.temp),
@@ -34,7 +34,9 @@ function App() {
           rain: data.rain?.["1h"],
         };
         dispatch(SearchAction(weatherKeys));
-      });
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false))
   }, [values]);
   return (
     <Context.Provider
@@ -44,23 +46,35 @@ function App() {
       }}
     >
       <div className="App">
-        {/* {data.weather == "Rain" || "Clouds" ? (
-          <img src={img} alt="img" className="bg_img" />
+        {isLoding ? (
+          <div className="loading_wrapper">
+            <h1 className="loading">loading...</h1>
+          </div>
         ) : (
-          <img src={clear} alt="clear_img" className="bg_img" />
-        )} */}
-        <div className="first">
-          <nav>
-            <h1>the.weather</h1>
-          </nav>
-          <div className="mainInfo">
-            <MainInfo />
-          </div>
-        </div>
-        <div className="second">
-            <Location />
-            <MoreInfos />
-          </div>
+          <>
+            <div className="img_wrapper">
+              <img src={img} alt="img" />
+            </div>
+            <div className="first">
+              <nav>
+                <h1>the.weather</h1>
+              </nav>
+              <div className="mainInfo">
+                {data.name == values ? (
+                  <MainInfo />
+                ) : (
+                  <h1 className="notFounded">
+                    Please write City or Country name correctly!
+                  </h1>
+                )}
+              </div>
+            </div>
+            <div className="second">
+              <Location />
+              <MoreInfos />
+            </div>
+          </>
+        )}
       </div>
     </Context.Provider>
   );

@@ -22,34 +22,64 @@
       font-size: 80px;
       letter-spacing: 2px;
     }
-    .time{
-        font-size: 1.5rem;
-        font-weight: 600;
+    .time {
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
-    @media (max-width: 1161px) {
-
+    @media (max-width: 768px) {
+      .city {
+        font-size: 40px;
+      }
+      .time {
+        font-size: 1.2rem;
+      }
     }
-
+    @media (max-width:455px) {
+      .city{
+        font-size: 30px;
+      }
+      .time{
+        font-size: 1.1rem;
+      }
+    }
   }
 
-  .weather_icon{
+  .weather_icon {
     display: flex;
     flex-direction: column;
 
-    .icon{
-        i{
-            font-size: 100px;
-        }
+    .icon {
+      i {
+        font-size: 100px;
+      }
     }
 
-    .climate_text{
-        font-size: 2rem;
+    .climate_text {
+      font-size: 2rem;
     }
   }
 
-  @media(max-width: 1161px) {
+  @media (max-width: 1161px) {
     display: block;
     padding: 0;
+
+    .degree {
+      font-size: 70px;
+    }
+  }
+
+  @media (max-width:655px){
+    display: flex;
+    gap: 1rem;
+    .icon{
+      i{
+        font-size: 70px !important;
+      }
+    }
+  }
+
+  @media (max-width:455px){
+    flex-wrap: wrap;
   }
 }

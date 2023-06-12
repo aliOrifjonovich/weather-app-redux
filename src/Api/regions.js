@@ -11,5 +11,5 @@ export  const regions = [
     "Sirdaryo",
     "Navoiy",
     "Urganch",
-    "karakalpakstan"
+    "Nukus"
 ]
