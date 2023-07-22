@@ -23,12 +23,10 @@ const MainInfo = () => {
           <p className={cls.icon}>
             {data.weather == "Rain" || "Clouds" ? (
               <>
-                {console.log("clouds")}
                 <i class="bx  bxs-cloud"></i>
               </>
             ) : (
               <>
-                {console.log("sun")}
                 <i class="bx bx-sun"></i>
               </>
             )}
