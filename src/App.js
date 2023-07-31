@@ -12,7 +12,7 @@ export const Context = createContext();
 
 function App() {
   const dispatch = useDispatch();
-  const [values, setValues] = useState("London");
+  const [values, setValues] = useState("london");
   const [isLoding, setIsLoading] = useState(true);
   const APIKEY = "f6363b23154d6b7d3c0c40c1e8d6a98e";
   const data = useSelector((store) => store.search);
@@ -25,7 +25,7 @@ function App() {
       .then((response) => {
         const data = response.data;
         const weatherKeys = {
-          name: data.name,
+          name: data.name.toLowerCase(),
           degree: Math.ceil(data.main.temp),
           huminity: data.main.humidity,
           coulds: data.clouds.all,

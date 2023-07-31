@@ -9,10 +9,7 @@ const Location = () => {
   const { setValues } = useContext(Context);
   const onSubmit = (e) => {
     e.preventDefault();
-    const inputValue = e.target["input"].value;
-    const capitalizedValue =
-      inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
-    setValues(capitalizedValue);
+    setValues(e.target["input"].value);
   };
   return (
     <div className={cls.wrapper}>
