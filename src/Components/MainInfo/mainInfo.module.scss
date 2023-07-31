@@ -48,7 +48,7 @@
   .weather_icon {
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
     .icon {
       i {
         font-size: 100px;
@@ -57,6 +57,7 @@
 
     .climate_text {
       font-size: 2rem;
+      text-align: center;
     }
   }
 

@@ -21,9 +21,9 @@ const MainInfo = () => {
         </div>
         <div className={cls.weather_icon}>
           <p className={cls.icon}>
-            {data.weather == "Rain" || "Clouds" ? (
+            {data.weather == "Clouds" ? (
               <>
-                <i class="bx  bxs-cloud"></i>
+                <i class="bx  bx-cloud"></i>
               </>
             ) : (
               <>

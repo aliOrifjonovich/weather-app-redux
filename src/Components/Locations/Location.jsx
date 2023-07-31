@@ -6,25 +6,28 @@ import { useContext } from "react";
 import { Context } from "../../App";
 
 const Location = () => {
-  const {setValues} = useContext(Context);
+  const { setValues } = useContext(Context);
   const onSubmit = (e) => {
-    e.preventDefault()
-    setValues(e.target['input'].value );
-  }
+    e.preventDefault();
+    const inputValue = e.target["input"].value;
+    const capitalizedValue =
+      inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+    setValues(capitalizedValue);
+  };
   return (
     <div className={cls.wrapper}>
       <form className={cls.search_input} onSubmit={onSubmit}>
         <div className={cls.search}>
-          <input type="text" placeholder="Another Location" name="input"/>
+          <input type="text" placeholder="Another Location" name="input" />
         </div>
-        <button type="submit" >
+        <button type="submit">
           <box-icon size="md" name="search"></box-icon>
         </button>
       </form>
       <div className={cls.regions_wrapper}>
         <div className={cls.scrollbar}>
           {regions.map((region) => (
-            <p onClick={()=>setValues(region)}>{region}</p>
+            <p onClick={() => setValues(region)}>{region}</p>
           ))}
         </div>
         <span className={cls.line}></span>

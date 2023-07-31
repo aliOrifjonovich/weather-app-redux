@@ -41,12 +41,6 @@
     @media(max-width: 1161px){
       padding: 40px;
     }
-    @media(max-width:655px){
-      height: 20rem !important;
-    }
-    @media(max-width:350px){
-      height: 30rem !important;
-    }
   }
 
   .second{
@@ -59,6 +53,8 @@
 
     @media (max-width: 680px) {
       position: sticky;
+      top: 0;
+      left: 0;
       left: 0;
       width: 100%;
       border: none;

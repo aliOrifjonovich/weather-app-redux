@@ -36,7 +36,7 @@ function App() {
         dispatch(SearchAction(weatherKeys));
       })
       .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoading(false));
   }, [values]);
   return (
     <Context.Provider
@@ -53,13 +53,18 @@ function App() {
         ) : (
           <>
             <div className="img_wrapper">
-              <img src={img} alt="img" />
+              {data.weather == "Clouds" || data.weather == "Rain" ? (
+                <img src={img} width="250px" height="250px" alt="img" />
+              ) : (
+                <img src={clear} width="250px" height="250px" alt="img" />
+              )}
             </div>
             <div className="first">
               <nav>
                 <h1>the.weather</h1>
               </nav>
               <div className="mainInfo">
+                {console.log("data.name", data.name, "values", values)}
                 {data.name == values ? (
                   <MainInfo />
                 ) : (
